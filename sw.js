@@ -1,7 +1,7 @@
 // Service worker: funciona sin internet después de la primera visita
-const CACHE = "pensum-mu-v4";
-const SHELL = ["./", "index.html", "manifest.webmanifest", "icons/icon-192.png?v=1", "icons/icon-512.png?v=1",
-  "icons/apple-touch-icon.png?v=1", "icons/logo-alpha.png", "icons/logo-celmu.png"];
+const CACHE = "pensum-mu-v5";
+const SHELL = ["./", "index.html", "manifest.webmanifest", "icons/icon-192.png?v=2", "icons/icon-512.png?v=2",
+  "icons/apple-touch-icon.png?v=2", "icons/favicon-32.png?v=2", "icons/logo-alpha.png", "icons/logo-celmu.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL))); self.skipWaiting(); });
 self.addEventListener("activate", e => {
   e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))));
